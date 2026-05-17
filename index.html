@@ -583,27 +583,22 @@
     font-size: 0.8rem;
     font-weight: 500;
   }
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+.about-photo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
   }
-  .stat-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 1.4rem;
-    text-align: center;
+  .about-photo {
+    width: 100%;
+    max-width: 380px;
+    height: 420px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 20px;
+    border: 2px solid rgba(194,113,79,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   }
-  .stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    color: var(--terra-light);
-    display: block;
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
 
   /* ── CONTACT ── */
   #contact { background: var(--warm-white); text-align: center; }
@@ -739,21 +734,9 @@
         <span class="skill-chip">Mental health innovation</span>
       </div>
     </div>
-    <div class="about-stats">
-      <div class="stat-card">
-        <span class="stat-number">8</span>
-        <span class="stat-label">Research Projects</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">3</span>
-        <span class="stat-label">Publications</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">5</span>
-        <span class="stat-label">Poems Written</span>
-      </div>
-    </div>
-  </div>
+<div class="about-photo-wrap">
+  <img src="my-photo.jpg" alt="Aishwarya Vijayakumar" class="about-photo" />
+</div>
 </section>
 
 <!-- CONTACT -->
