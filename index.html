@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Biomedical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EC;
+    --warm-white: #FDFAF5;
+    --sand: #E8DFD0;
+    --terracotta: #C2714F;
+    --terra-light: #E8A882;
+    --terra-dark: #8B4A2F;
+    --moss: #5C6B4A;
+    --moss-light: #8FA07A;
+    --charcoal: #2C2820;
+    --text-main: #3A3228;
+    --text-muted: #7A6E62;
+    --text-light: #AFA89F;
+    --border: rgba(90,70,50,0.15);
+    --shadow: rgba(60,40,20,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-main);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247,243,236,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--terra-dark);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(194,113,79,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(92,107,74,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { max-width: 700px; position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--terracotta);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.12;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+  h1 em { color: var(--terracotta); font-style: italic; }
+  .hero-bio {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--terracotta);
+    color: #fff;
+    padding: 0.75rem 1.8rem;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--terra-dark); transform: translateY(-2px); }
+  .btn-secondary {
+    border: 1.5px solid var(--terracotta);
+    color: var(--terracotta);
+    padding: 0.75rem 1.8rem;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { background: var(--terracotta); color: #fff; }
+
+  .hero-deco {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 380px;
+    height: 380px;
+    border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
+    border: 2px solid rgba(194,113,79,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-deco::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border-radius: 55% 45% 60% 40% / 48% 52% 48% 52%;
+    border: 1.5px solid rgba(194,113,79,0.12);
+  }
+  .hero-deco-inner {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-icon {
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+  }
+  .hero-deco-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--terracotta);
+    font-style: italic;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 5%; }
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background: var(--terra-light);
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  .section-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    max-width: 500px;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--warm-white); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .project-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px var(--shadow);
+  }
+  .project-card-top {
+    height: 6px;
+    background: linear-gradient(90deg, var(--terracotta), var(--terra-light));
+  }
+  .project-card-body { padding: 1.5rem; }
+  .project-number {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--charcoal);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.2rem;
+  }
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(194,113,79,0.1);
+    color: var(--terra-dark);
+    letter-spacing: 0.03em;
+  }
+  .project-card-footer {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .view-details-btn {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    transition: gap 0.2s;
+  }
+  .view-details-btn:hover { gap: 8px; }
+  .view-details-btn svg { width: 14px; height: 14px; }
+
+  /* ── PROJECT MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(44,40,32,0.5);
+    z-index: 200;
+    padding: 2rem 5%;
+    overflow-y: auto;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--warm-white);
+    border-radius: 20px;
+    max-width: 680px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(44,40,32,0.2);
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal-header {
+    background: linear-gradient(135deg, var(--terracotta), var(--terra-dark));
+    padding: 2rem;
+    color: #fff;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.35); }
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+  .modal-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.75); }
+  .modal-body { padding: 2rem; }
+
+  .modal-section { margin-bottom: 1.8rem; }
+  .modal-section-title {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .modal-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .modal-section p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; }
+
+  /* Attachments */
+  .attachments-list { display: flex; flex-direction: column; gap: 10px; }
+  .attachment-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.85rem 1rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .attachment-item:hover {
+    background: rgba(194,113,79,0.06);
+    border-color: var(--terra-light);
+  }
+  .attachment-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(194,113,79,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+  .attachment-info { flex: 1; }
+  .attachment-name { font-size: 0.9rem; font-weight: 500; color: var(--charcoal); }
+  .attachment-type { font-size: 0.75rem; color: var(--text-light); margin-top: 1px; }
+  .attachment-arrow {
+    color: var(--terra-light);
+    font-size: 1rem;
+    transition: transform 0.2s;
+  }
+  .attachment-item:hover .attachment-arrow { transform: translateX(3px); }
+
+  .upload-note {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    font-style: italic;
+    text-align: center;
+    padding: 1rem;
+    border: 1.5px dashed var(--border);
+    border-radius: 10px;
+  }
+
+  /* ── POEMS ── */
+  #poems { background: var(--cream); }
+  .poems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .poem-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .poem-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px var(--shadow); }
+
+  .poem-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--sand);
+  }
+  .poem-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+  .poem-card:hover .poem-img { transform: scale(1.03); }
+  .poem-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(44,40,32,0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s;
+  }
+  .poem-img-overlay span {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.25s;
+    background: rgba(194,113,79,0.85);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+  .poem-card:hover .poem-img-overlay { background: rgba(44,40,32,0.3); }
+  .poem-card:hover .poem-img-overlay span { opacity: 1; }
+
+  .poem-img-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+  }
+
+  .poem-card-footer {
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+  }
+  .poem-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--charcoal);
+  }
+  .read-poem-btn {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--moss);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s;
+    white-space: nowrap;
+  }
+  .read-poem-btn:hover { gap: 7px; }
+
+  /* poem modal */
+  .poem-modal-body { padding: 2rem; }
+  .poem-full-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    line-height: 2.2;
+    color: var(--text-main);
+    white-space: pre-wrap;
+    font-style: italic;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.9);
+  }
+  #about .section-label { color: var(--terra-light); }
+  #about .section-label::after { background: var(--terra-light); }
+  #about h2 { color: #fff; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+  .about-text { font-size: 0.97rem; color: rgba(255,255,255,0.65); line-height: 1.85; }
+  .about-text p { margin-bottom: 1rem; }
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1.5rem;
+  }
+  .skill-chip {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(194,113,79,0.4);
+    color: var(--terra-light);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.4rem;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--terra-light);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--warm-white); text-align: center; }
+  #contact .section-label { justify-content: center; }
+  #contact .section-label::after { display: none; }
+  #contact h2 { text-align: center; }
+  #contact .section-subtitle { margin: 0.5rem auto 2.5rem; text-align: center; }
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.7rem 1.4rem;
+    border: 1.5px solid var(--border);
+    border-radius: 40px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: #fff;
+  }
+  .contact-link:hover {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-deco { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+  }
+
+  /* animations */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">ThriveToday</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#poems">Poems</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Biomedical Engineer</p>
+    <h1>Where <em>Science</em> Meets Creativity</h1>
+    <p class="hero-bio">
+      A biomedical engineer passionate about bridging the gap between engineering innovation and human health — with a poet's eye for what lies beneath the surface.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#poems" class="btn-secondary">Read Poems</a>
+    </div>
+  </div>
+  <div class="hero-deco">
+    <div class="hero-deco-inner">
+      <video autoplay loop muted playsinline class="hero-video">
+      <source src="C:\Users\abij7\Downloads\blood sugar.mp4" type="video/mp4">
+</video>
+      <div class="hero-deco-label">Engineering life</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Research & Work</div>
+  <h2>Projects</h2>
+  <p class="section-subtitle">Click any project to explore details, methodology, and attached certificates or papers</p>
+  <div class="projects-grid" id="projectsGrid"></div>
+</section>
+
+<!-- POEMS -->
+<section id="poems">
+  <div class="section-label">Creative Writing</div>
+  <h2>Poems</h2>
+  <p class="section-subtitle">Voids of my life — click any poem to view it in full</p>
+  <div class="poems-grid" id="poemsGrid"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Background</div>
+  <h2>About Me</h2>
+  <div class="about-grid">
+    <div>
+      <div class="about-text">
+        <p>Hi, I'm Aish 👋🏻</p>
+        <p>A biomedical engineer  passionate about Material Engineering, Neuroscience, and Mental health innovations. I combine signal processing, data analysis, and research methodologies to explore device-based therapeutic solutions. I seek opportunities in medical research and global collaboration in health technology.</p>
+        <p>Beyond lab I find meaning in poetry where I actually find myself as  a person expressing my thoughts, traumas  and morals.</p>
+        <p>I believe best solutions come from thinking, empathy and relentless curiosity.</p>
+      </div>
+      <div class="skills-list">
+        <span class="skill-chip">Rehabilitation Tech</span>
+        <span class="skill-chip">Signal analysis</span>
+        <span class="skill-chip">Tissue Engineering</span>
+        <span class="skill-chip">Nanomedicine</span>
+        <span class="skill-chip">Mental health innovation</span>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <span class="stat-number">8</span>
+        <span class="stat-label">Research Projects</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Publications</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">5</span>
+        <span class="stat-label">Poems Written</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in Touch</div>
+  <h2>Contact</h2>
+  <p class="section-subtitle">Open to collaborations, research opportunities, and conversations.</p>
+  <div class="contact-links">
+    <a href="mailto:aishwaryavijayakumar.241@gmail.com" class="contact-link" target="_blank">📧 Email</a>
+    <a href="https://in.linkedin.com/in/aishwarya-vijayakumar-" class="contact-link" target="_blank">📤 LinkedIn</a>
+    <a href="https://www.instagram.com/___itz_aish/?hl=en" class="contact-link" target="_blank">🔖 Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <p>Built with care · Aish</p>
+</footer>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal" id="projectModalContent">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('projectModal')">✕</button>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-subtitle" id="modalSubtitle"></div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-title">Overview</div>
+        <p id="modalOverview"></p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">Attachments & Certificates</div>
+        <div class="attachments-list" id="modalAttachments"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POEM IMAGE MODAL -->
+<div class="modal-overlay" id="poemImgModal" style="background:rgba(20,16,12,0.92); align-items:center; justify-content:center;">
+  <div style="position:relative; max-width:90vw; max-height:90vh; display:flex; flex-direction:column; align-items:center; gap:1rem;">
+    <button class="modal-close" onclick="closeModal('poemImgModal')" style="position:static; align-self:flex-end; background:rgba(255,255,255,0.15);">✕</button>
+    <div id="poemImgModalTitle" style="font-family:'Playfair Display',serif; color:#fff; font-size:1.2rem; font-style:italic;"></div>
+    <img id="poemImgModalImg" src="" alt="Poem" style="max-width:90vw; max-height:80vh; border-radius:12px; object-fit:contain; box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
+  </div>
+</div>
+
+<!-- POEM MODAL -->
+<div class="modal-overlay" id="poemModal">
+  <div class="modal" id="poemModalContent">
+    <div class="modal-header" style="background: linear-gradient(135deg, #5C6B4A, #3a4530);">
+      <button class="modal-close" onclick="closeModal('poemModal')">✕</button>
+      <div class="modal-title" id="poemModalTitle"></div>
+      <div class="modal-subtitle" id="poemModalDate"></div>
+    </div>
+    <div class="poem-modal-body">
+      <div class="poem-full-text" id="poemModalText"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const projects = [
+  {
+    id: 1,
+    title: "SOOTHESCAPE: IoT-Based Intervention for Stress & Anxiety",
+    short: "Wearable GSR + Heart Rate system for real-time mental health tracking",
+    desc: "A wearable system integrating GSR and Heart Rate sensors for real-time mental health monitoring with both diagnostic and therapeutic capabilities.",
+    tags: ["IoT", "Wearables", "Mental Health", "Signal Processing"],
+    overview: "Current stress and anxiety assessments are limited by subjectivity and lack of continuous monitoring. Sweat offers a non-invasive window into physiological changes, but its potential remains underutilized. This study proposes a wearable system integrating GSR and Heart Rate Sensor for real-time mental health tracking with a diagnostic and therapeutic approach.",
+    objectives: "To design a non-invasive, continuous wearable solution that objectively monitors physiological stress markers and provides real-time therapeutic feedback to the user.",
+    methodology: "GSR and heart rate sensors were integrated into a wearable prototype. Signals were processed and classified to detect stress levels. Therapeutic feedback was delivered through the system based on detected stress thresholds.",
+    outcome: "Successfully developed a working prototype with both diagnostic and therapeutic modes. Research presented at conference with a proceeding paper published.",
+    attachments: [
+      { name: "Conference Proceeding Certificate", type: "PDF Certificate", icon: "🏅", url: "https://drive.google.com/file/d/193t3KNyPfhFRwiLCUPCUXPLLKfXOW3ym/view?usp=sharing" },
+      { name: "Research Paper", type: "Academic Paper", icon: "📄", url: "https://drive.google.com/file/d/1jOMCfOZCpjAQEj58xwAUlFR0dDmh8Zcc/view?usp=sharing" },
+      { name: "Project Report", type: "Technical Report", icon: "📋", url: "https://drive.google.com/file/d/1Hw_C51IBZy0d5VbkoFC_9tYOL1uAms5c/view?usp=sharing" }
+    ]
+  },
+  {
+    id: 2,
+    title: "rTMS & Intranasal PLGA-Based Drug Delivery: An Integrated Strategy for Stress & Anxiety Disorders",
+    short: "nanomaterial + neuromodulation integrated therapy",
+    desc: "A paper proposing a time-synchronized integration of nanoparticle-based intranasal drug delivery with rTMS for enhanced therapeutic precision in stress and anxiety disorders.",
+    tags: ["Nanomedicine", "rTMS", "Drug Delivery", "Publication"],
+    overview: "An approach of nanoparticle-based drug delivery with rTMS in a way that is time synchronized, has the potential to improve therapeutic precision, lower systemic exposure, and make both strategies more effective than either one on its own.",
+    objectives: "To propose and evaluate an integrated therapeutic framework combining PLGA-based intranasal nanoparticle delivery with repetitive Transcranial Magnetic Stimulation (rTMS) for anxiety and stress disorders.",
+    methodology: "A comprehensive literature-based study reviewing PLGA nanoparticle formulation strategies, rTMS protocols, and synchronization approaches to maximize therapeutic synergy while minimizing systemic side effects.",
+    outcome: "Paper accepted and published with a conference proceeding certificate. The work contributes a novel integrated strategy to the growing field of tech-nanomaterial therapeutics for mental health.",
+    attachments: [
+      { name: "Conference Proceeding Certificate", type: "PDF Certificate", icon: "🏅", url: "https://drive.google.com/file/d/18Z7yxjNSiCVk6o5AmiyE2N0GPkipJtn7/view?usp=sharing" },
+      { name: "Final Published Paper", type: "Academic Paper", icon: "📄", url: "https://drive.google.com/file/d/1msOI31PzaWcHnnBwNCtc5N9NQbx6-7-P/view?usp=sharing" }
+    ]
+  },
+  {
+    id: 3,
+    title: "Green Synthesis of Carbon Dots for Sustainable Drug Delivery",
+    short: "Book chapter — IGI Global Scopus-Indexed Publication",
+    desc: "Book Chapter 6 in the IGI Global Scopus-indexed book 'Carbon Quantum Dots With Tailored Heterogeneous Atoms', covering green synthesis routes for drug delivery applications.",
+    tags: ["Carbon Dots", "Drug Delivery", "Green Synthesis", "Book Chapter"],
+    overview: "Recognised by IGI Global Scientific Publishing (Scopus Indexed) for the publication of the book 'Carbon Quantum Dots With Tailored Heterogeneous Atoms.' This contribution appears as Book Chapter 6 entitled 'Green Synthesis of Carbon Dots for Sustainable Drug Delivery', exploring environmentally conscious synthesis routes and their biomedical applications.",
+    objectives: "To comprehensively review and present green synthesis methodologies for carbon quantum dots and evaluate their potential as sustainable, biocompatible carriers for drug delivery systems.",
+    methodology: "An extensive literature review and synthesis of existing research on green precursor-based carbon dot fabrication, surface functionalisation, drug loading strategies, and in-vitro/in-vivo delivery performance.",
+    outcome: "Chapter published in a Scopus-indexed IGI Global book. Available via the IGI Global digital library. Contributes to the growing body of sustainable nanomedicine literature.",
+    attachments: [
+      { name: "View Book Chapter on IGI Global", type: "External Publication Link", icon: "🌐", url: "https://www.igi-global.com/chapter/green-synthesis-of-quantum-dots-for-sustainable-drug-delivery/395556" }
+    ]
+  },
+  {
+    id: 4,
+    title: "MINDSCAPE: A Rehabilitative Site for Anxiety Disorders",
+    short: "AI-integrated web application for anxiety rehabilitation",
+    desc: "An advanced web application integrating AI, curated music, yoga, guided meditation, and relaxation exercises to provide personalised anxiety management solutions.",
+    tags: ["Web Application", "Mental Health", "AI", "Rehabilitation"],
+    overview: "The project focuses on developing advanced web applications aimed at reducing anxiety through a variety of calming tools. A key feature is the integration of artificial intelligence (AI), curated selections of music, yoga, guided meditation, relaxation exercises, and a flexibly designed programme using these multifaceted activities to provide tailored solutions for individuals based on their specific levels of anxiety.",
+    objectives: "To build an accessible, evidence-informed digital platform that personalises therapeutic interventions for anxiety based on the user's self-reported anxiety level and preferences.",
+    methodology: "Designed as a full-stack web application with an AI recommendation layer. Features include an anxiety level assessment module, personalised content delivery (music, yoga videos, meditation guides), and progress tracking.",
+    outcome: "Functional prototype developed. The platform demonstrated the potential of digital therapeutics in bridging the gap between clinical care and everyday mental health management.",
+    attachments: [
+      { name: "Project Report", type: "Technical Report", icon: "📋", url: "https://drive.google.com/file/d/1n5g2RhDl0RXVz-rduBiMxo0ffwAEdvyQ/view?usp=sharing" }
+    ]
+  },
+  {
+    id: 5,
+    title: "MATLAB-Based Modelling of Pacemaker-Controlled ECG During Tachycardia & Bradycardia",
+    short: "Cardiac simulation with pacemaker control logic in MATLAB",
+    desc: "Simulated normal, bradycardic, and tachycardic cardiac activity over time and implemented pacemaker logic that activates when abnormalities are detected.",
+    tags: ["MATLAB", "Cardiology", "Signal Processing", "Simulation"],
+    overview: "To simulate normal, bradycardic, and tachycardic cardiac activity over time and implement a pacemaker control logic that paces the heart when abnormalities occur.",
+    objectives: "To develop a MATLAB-based computational model that accurately replicates ECG waveforms under different cardiac conditions and triggers simulated pacemaker intervention at clinically defined thresholds.",
+    methodology: "ECG waveforms were mathematically modelled for normal sinus rhythm, bradycardia, and tachycardia states. A rule-based pacemaker control algorithm was implemented to detect abnormal heart rates and simulate pacing pulses accordingly.",
+    outcome: "A complete MATLAB simulation pipeline was developed and validated against known clinical ECG parameters. Results documented in a full project report.",
+    attachments: [
+      { name: "Project Report (PDF)", type: "Technical Report", icon: "📋", url: "https://drive.google.com/file/d/1WSCZusiifLoejt5HgzEJF5gXrT4CUcMZ/view?usp=sharing" }
+    ]
+  },
+  {
+    id: 6,
+    title: "3D Printing of CNC Composites for Bone Tissue Engineering",
+    short: "PLA/CNC composite scaffolds for bone regeneration",
+    desc: "Developed 3D-printed PLA/cellulose nanocrystal composite scaffolds to improve mechanical strength, biodegradability, and apatite formation for bone tissue engineering.",
+    tags: ["3D Printing", "Biomaterials", "Tissue Engineering", "CNC"],
+    overview: "This project focuses on 3D printing PLA/CNC composite scaffolds for bone tissue engineering applications. By integrating cellulose nanocrystals (CNC), the aim is to improve scaffold strength, biodegradability, and apatite growth.",
+    objectives: "To fabricate and characterise PLA/CNC composite scaffolds with enhanced mechanical and biological properties suitable for supporting bone cell growth and eventual integration.",
+    methodology: "Scaffolds were fabricated using FDM-based 3D printing with varying CNC concentrations. Characterisation included mechanical testing, SEM imaging, FTIR, and apatite mineralisation studies in simulated body fluid.",
+    outcome: "Scaffolds with optimised CNC content demonstrated improved compressive strength and enhanced apatite deposition compared to pure PLA. Findings documented in a comprehensive project report.",
+    attachments: [
+      { name: "Project Report (PDF)", type: "Technical Report", icon: "📋", url: "https://drive.google.com/file/d/1ZGnZod42ZLvGoUqc0qgBMMjsb5oKytB0/view?usp=sharing" }
+    ]
+  },
+  {
+    id: 7,
+    title: "PARAFIT – Revolutionising Fitness with Rehabilitation",
+    short: "Digital prototype of a rehabilitative fitness wheelchair",
+    desc: "A digital prototype of a rehabilitative fitness wheelchair designed for individuals with paralysis and multiple sclerosis-related impairments.",
+    tags: ["Rehabilitation", "Assistive Technology", "Prototype", "Disability"],
+    overview: "PARAFIT is a digital prototype of a rehabilitative fitness wheelchair designed for individuals with paralysis and multiple sclerosis-related impairments. The concept aims to revolutionise how rehabilitation and fitness are approached for users with significant mobility limitations.",
+    objectives: "To conceptualise and prototype a wheelchair-integrated fitness and rehabilitation device that supports therapeutic exercise for paralysis and MS patients, promoting physical wellbeing and functional recovery.",
+    methodology: "Developed as a digital prototype using design tools. The concept integrates resistance-based arm exercise modules, physiotherapy exercise guidance, and ergonomic adaptations for paralysis and MS users.",
+    outcome: "A fully realised digital prototype with design documentation and visual assets demonstrating the PARAFIT concept.",
+    attachments: [
+      { name: "Digital Prototype Photos", type: "Image Files", icon: "🖼️", url: "https://drive.google.com/file/d/1kOLEA-bbopZgf0x5Se7-X-YFq6dWNgmW/view?usp=sharing" },
+      { name: "Project Report (PDF)", type: "Technical Report", icon: "📋", url: "https://drive.google.com/file/d/1dbAnrsKgVjvkn59DFnS1WIgYm72ARRvW/view?usp=sharing" }
+    ]
+  }
+];
+
+const poems = [
+  {
+    id: 1,
+    title: "Poem 1",
+    fileId: "1tK7oKLGJ7QCSsYGyLTb35A4TjRbUqdTU"
+  },
+  {
+    id: 2,
+    title: "Poem 2",
+    fileId: "1-L7Ym_Ler0oa321yck2QEk7DqbfrZnKg"
+  },
+  {
+    id: 3,
+    title: "Poem 3",
+    fileId: "1lufDEhcfsNuVsw4ShgklbqWvFd4XwtmJ"
+  },
+  {
+    id: 4,
+    title: "Poem 4",
+    fileId: "1wV_1doeMhj2PcPICpQlx_xxlsh4ytRaZ"
+  },
+  {
+    id: 5,
+    title: "Poem 5",
+    fileId: "1FV7Yu4_8FM2LN0ViHKcxs9wrakhN76nU"
+  }
+];
+
+// Render Projects
+const grid = document.getElementById('projectsGrid');
+projects.forEach((p, i) => {
+  const card = document.createElement('div');
+  card.className = 'project-card fade-up';
+  card.style.transitionDelay = `${i * 0.07}s`;
+  card.innerHTML = `
+    <div class="project-card-top"></div>
+    <div class="project-card-body">
+      <div class="project-number">Project ${String(p.id).padStart(2,'0')}</div>
+      <div class="project-title">${p.title}</div>
+      <div class="project-desc">${p.desc}</div>
+      <div class="project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      <div class="project-card-footer">
+        <button class="view-details-btn" onclick="openProject(${p.id})">
+          View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+
+// Render Poems — cards show images directly
+const poemsGrid = document.getElementById('poemsGrid');
+poems.forEach((p, i) => {
+  const imgUrl = `https://lh3.googleusercontent.com/d/${p.fileId}`;
+  const card = document.createElement('div');
+  card.className = 'poem-card fade-up';
+  card.style.transitionDelay = `${i * 0.08}s`;
+  card.innerHTML = `
+    <div class="poem-img-wrap" onclick="openPoemImage('${imgUrl}', '${p.title}')">
+      <img src="${imgUrl}" alt="${p.title}" class="poem-img" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'poem-img-error\\'>Image unavailable — make sure the file is shared publicly in Google Drive</div>'" />
+      <div class="poem-img-overlay"><span>Click to enlarge ↗</span></div>
+    </div>
+    <div class="poem-card-footer">
+      <div class="poem-title">${p.title}</div>
+      <button class="read-poem-btn" onclick="openPoemImage('${imgUrl}', '${p.title}')">View full size →</button>
+    </div>
+  `;
+  poemsGrid.appendChild(card);
+});
+
+// Open Project Modal
+function openProject(id) {
+  const p = projects.find(x => x.id === id);
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalSubtitle').textContent = p.short;
+  document.getElementById('modalOverview').textContent = p.overview;
+
+  const attList = document.getElementById('modalAttachments');
+  attList.innerHTML = '';
+  p.attachments.forEach(a => {
+    const el = document.createElement('div');
+    el.className = 'attachment-item';
+    el.onclick = () => {
+      if (a.url && a.url !== '#') window.open(a.url, '_blank');
+      else alert('Upload your file and replace the "#" URL in the project data with your file link or path.');
+    };
+    el.innerHTML = `
+      <div class="attachment-icon">${a.icon}</div>
+      <div class="attachment-info">
+        <div class="attachment-name">${a.name}</div>
+        <div class="attachment-type">${a.type}</div>
+      </div>
+      <span class="attachment-arrow">→</span>
+    `;
+    attList.appendChild(el);
+  });
+
+  document.getElementById('projectModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+// Open Poem Modal
+function openPoem(id) {
+  const p = poems.find(x => x.id === id);
+  document.getElementById('poemModalTitle').textContent = p.title;
+  document.getElementById('poemModalDate').textContent = p.date;
+  document.getElementById('poemModalText').textContent = p.full;
+  document.getElementById('poemModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+// Open Poem Image Modal
+function openPoemImage(imgUrl, title) {
+  document.getElementById('poemImgModalTitle').textContent = title;
+  document.getElementById('poemImgModalImg').src = imgUrl;
+  document.getElementById('poemImgModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('poemImgModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal('poemImgModal');
+});
+document.getElementById('projectModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal('projectModal');
+});
+document.getElementById('poemModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal('poemModal');
+});
+
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
